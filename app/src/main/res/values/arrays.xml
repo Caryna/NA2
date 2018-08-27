@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_newest_news_label</item>
+        <item>@string/settings_order_by_oldest_news_label</item>
+        <item>@string/settings_order_by_relevance_news_label</item>
+    </string-array>
+
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_newest_news_value</item>
+        <item>@string/settings_order_by_oldest_news_value</item>
+        <item>@string/settings_order_by_relevance_news_value</item>
+    </string-array>
+
+    <string-array name="settings_section_labels">
+        <item>@string/settings_section_all_news_label</item>
+        <item>@string/settings_section_world_news_label</item>
+        <item>@string/settings_section_uk_news_label</item>
+        <item>@string/settings_section_music_label</item>
+        <item>@string/settings_section_sport_label</item>
+        <item>@string/settings_section_environment_label</item>
+        <item>@string/settings_section_opinion_label</item>
+        <item>@string/settings_section_football_label</item>
+    </string-array>
+
+    <string-array name="settings_section_values">
+        <item>@string/settings_section_all_news_value</item>
+        <item>@string/settings_section_world_news_value</item>
+        <item>@string/settings_section_uk_news_value</item>
+        <item>@string/settings_section_music_value</item>
+        <item>@string/settings_section_sport_value</item>
+        <item>@string/settings_section_environment_value</item>
+        <item>@string/settings_section_opinion_value</item>
+        <item>@string/settings_section_football_value</item>
+    </string-array>
+
+</resources>

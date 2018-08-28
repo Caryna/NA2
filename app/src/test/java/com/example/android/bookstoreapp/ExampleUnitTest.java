@@ -1,4 +1,4 @@
-package com.example.android.newsfeedapp;
+package com.example.android.bookstoreapp;
 
 import org.junit.Test;
 

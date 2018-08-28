@@ -1,53 +1,37 @@
 <resources>
-    <string name="app_name">NewsFeedApp</string>
-    <string name="no_news">No news found</string>
-    <string name="no_internet_connection">No internet connection.</string>
+    <string name="app_name">BookStoreApp</string>
 
-    <string name="settings_menu_item">Settings</string>
-    <string name="settings_title">News Settings</string>
-    <string name="settings_max_news_label">Maximum News</string>
-    <string name="settings_max_news_key" translatable="false">max_news</string>
-    <string name="settings_max_news_default" translatable="false">10</string>
+    <!-- Label for overflow menu option that inserts fake book data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
 
-    <string name="settings_order_by_label">Order By</string>
-    <string name="settings_order_by_key" translatable="false">order_by</string>
-    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_newest_news_value</string>
+    <!-- Label for overflow menu option that deletes all book data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Books</string>
 
-    <string name="settings_order_by_newest_news_label">Newest</string>
-    <string name="settings_order_by_newest_news_value" translatable="false">newest</string>
+    <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_book">Add a Book</string>
 
-    <string name="settings_order_by_oldest_news_label">Oldest</string>
-    <string name="settings_order_by_oldest_news_value" translatable="false">oldest</string>
+    <!-- Label for editor menu option to save book and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
 
-    <string name="settings_order_by_relevance_news_label">Relevance</string>
-    <string name="settings_order_by_relevance_news_value" translatable="false">relevance</string>
+    <!-- Label for editor overflow menu option that deletes the current book [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
 
-    <string name="settings_section_label">Section</string>
-    <string name="settings_section_news_key" translatable="false">section</string>
-    <string name="settings_section_news_default" translatable="false">@string/settings_section_all_news_value</string>
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
 
-    <string name="settings_section_all_news_label">All</string>
-    <string name="settings_section_all_news_value" translatable="false"></string>
+    <!-- Label for gender information in the editor [CHAR LIMIT=30] -->
+    <string name="hint_quantity">Quantity</string>
 
-    <string name="settings_section_world_news_label">World news</string>
-    <string name="settings_section_world_news_value" translatable="false">world</string>
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_name">Product Name</string>
 
-    <string name="settings_section_uk_news_label">UK news</string>
-    <string name="settings_section_uk_news_value" translatable="false">uk-news</string>
+    <!-- Text hint for breed field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_price">Price</string>
 
-    <string name="settings_section_music_label">Music</string>
-    <string name="settings_section_music_value" translatable="false">music</string>
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_supplier_name">Supplier name</string>
 
-    <string name="settings_section_sport_label">Sport</string>
-    <string name="settings_section_sport_value" translatable="false">sport</string>
-
-    <string name="settings_section_environment_label">Environment</string>
-    <string name="settings_section_environment_value" translatable="false">environment</string>
-
-    <string name="settings_section_opinion_label">Opinion</string>
-    <string name="settings_section_opinion_value" translatable="false">commentisfree</string>
-
-    <string name="settings_section_football_label">Football</string>
-    <string name="settings_section_football_value" translatable="false">football</string>
+    <!-- Units for phone number of the supplier  -->
+    <string name="hint_supplier_phone_number">Supplier Phone Number</string>
 
 </resources>

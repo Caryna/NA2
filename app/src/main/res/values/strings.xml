@@ -34,4 +34,32 @@
     <!-- Units for phone number of the supplier  -->
     <string name="hint_supplier_phone_number">Supplier Phone Number</string>
 
+    <string name="editor_activity_title_edit_book">Edit a Book</string>
+    <string name="detail_activity_title_see_detail">Book detail</string>
+    <string name="editor_activity_product_category">Book</string>
+    <string name="product_price">Price</string>
+    <string name="product_name">Name</string>
+    <string name="unit_product_price">$</string>
+    <string name="product_quantity">Quantity</string>
+    <string name="unit_product_quantity">pc</string>
+    <string name="editor_activity_supplier_category">Supplier</string>
+    <string name="supplier_name">Name</string>
+    <string name="supplier_phone">Phone</string>
+    <string name="editor_insert_product_successful">Book saved</string>
+    <string name="editor_insert_product_failed">Error with saving the book</string>
+    <string name="empty_view_title_text">There are no books</string>
+    <string name="empty_view_subtitle_text">Get started by adding a book</string>
+    <string name="delete_all_dialog_msg">Are you sure you want to delete all the books?</string>
+    <string name="delete_dialog_msg">Are you sure you want to delete all this book?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="editor_delete_product_successful">Book deleted</string>
+    <string name="editor_delete_product_failed">Error with deleting book</string>
+    <string name="editor_insert_product_required_fields">Please fill out all required fields</string>
+    <string name="editor_update_product_successful">Book updated</string>
+    <string name="editor_update_product_failed">Error with updating book</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+
 </resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="@dimen/activity_margin">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/colorFontPrimary"
+            tools:text="Book name"/>
+
+        <TextView
+            android:id="@+id/quantity_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@color/colorFontSecondary"
+            tools:text="30 in stock"/>
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/button_sale"
+        android:layout_width="@dimen/list_item_sale_button_size"
+        android:layout_height="@dimen/list_item_sale_button_size"
+        android:background="@drawable/button_rounded"
+        android:textColor="@color/colorWhite"
+        android:src="@drawable/ic_basket"/>
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_marginLeft="@dimen/list_item_price_right_margin"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/list_item_price_font_size"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        tools:text="56" />
+</LinearLayout>

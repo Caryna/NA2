@@ -34,6 +34,7 @@ import com.example.android.bookstoreapp.data.BookContract.BookEntry;
 
 public class DetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    private static final int EXISTING_BOOK_LOADER = 0;
     private TextView nameTextView;
     private TextView quantityTextView;
     private TextView priceTextView;
@@ -43,7 +44,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     private Button decreaseQuantityButton;
     private Button increaseQuantityButton;
     private int quantity;
-    private static final int EXISTING_BOOK_LOADER = 0;
     private Uri currentBookUri;
 
     @Override
@@ -86,21 +86,19 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         callSupplierButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(supplierNameTextView.getText())) {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + supplierPhoneTextView.getText().toString()));
-                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                       return;
-                    }
+                String phone = supplierNameTextView.getText().toString().trim();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phone));
+                if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
                 }
             }
         });
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==RESULT_OK){
+        if (resultCode == RESULT_OK) {
             finish();
         }
     }
@@ -137,7 +135,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 BookEntry.COLUMN_BOOK_QUANTITY,
                 BookEntry.COLUMN_BOOK_PRICE,
                 BookEntry.COLUMN_BOOK_SUPPLIER_NAME,
-                BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER };
+                BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER};
         return new CursorLoader(this, currentBookUri, projection, null, null, null);
     }
 
@@ -195,9 +193,9 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         if (currentBookUri != null) {
             int deletedRow = getContentResolver().delete(currentBookUri, null, null);
             if (deletedRow != 0) {
-                Toast.makeText(this, getString(R.string.editor_delete_product_successful), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.editor_delete_book_successful), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, getString(R.string.editor_delete_product_failed), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.editor_delete_book_failed), Toast.LENGTH_SHORT).show();
             }
         }
         finish();

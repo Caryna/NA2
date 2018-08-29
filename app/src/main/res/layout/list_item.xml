@@ -19,6 +19,7 @@
             android:fontFamily="sans-serif-medium"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/colorFontPrimary"
+            android:textStyle="bold"
             tools:text="Book name"/>
 
         <TextView
@@ -28,15 +29,18 @@
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmall"
             android:textColor="@color/colorFontSecondary"
+            android:textStyle="bold"
             tools:text="30 in stock"/>
     </LinearLayout>
-    <ImageButton
+    <Button
         android:id="@+id/button_sale"
-        android:layout_width="@dimen/list_item_sale_button_size"
-        android:layout_height="@dimen/list_item_sale_button_size"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/colorWhite"
-        android:src="@drawable/ic_basket"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:text="@string/sale"
+        android:textSize="18sp" />
     <TextView
         android:id="@+id/price"
         android:layout_width="0dp"
@@ -46,6 +50,5 @@
         android:gravity="center_vertical"
         android:textSize="@dimen/list_item_price_font_size"
         android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold"
         tools:text="56" />
 </LinearLayout>

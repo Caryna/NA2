@@ -8,6 +8,9 @@ import android.net.Uri;
  * Created by Carin on 8/28/2018.
  */
 
+/**
+ * API Contract for the BookApp2.
+ */
 public final class BookContract {
 
     public static final String CONTENT_AUTHORITY = "com.example.android.bookstoreapp";

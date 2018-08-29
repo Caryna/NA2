@@ -114,7 +114,7 @@
             android:layout_width="@dimen/button_call_size"
             android:layout_height="@dimen/button_call_size"
             android:background="@drawable/button_rounded"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorGrey"
             android:src="@drawable/ic_phone"/>
     </LinearLayout>
 </LinearLayout>

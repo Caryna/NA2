@@ -4,6 +4,7 @@ package com.example.android.bookstoreapp;
  * Created by Carin on 8/28/2018.
  */
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.content.ContentValues;
@@ -23,7 +24,12 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import com.example.android.bookstoreapp.data.BookDbHelper;
 import com.example.android.bookstoreapp.data.BookContract.BookEntry;
@@ -53,6 +59,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     /**
      * EditText field to enter the book's supplier phone number
      */
+
     private EditText mSupplierPhoneNumberEditText;
     private Uri currentBookUri;
     private boolean bookHasChanged;
@@ -64,6 +71,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
     };
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,13 +95,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mSupplierNameEditText = (EditText) findViewById(R.id.edit_supplier_name);
         mSupplierPhoneNumberEditText = (EditText) findViewById(R.id.edit_supplier_phone_number);
 
+
         mNameProductEditText.setOnTouchListener(touchListener);
         mPriceEditText.setOnTouchListener(touchListener);
         mQuantityEditText.setOnTouchListener(touchListener);
         mSupplierNameEditText.setOnTouchListener(touchListener);
         mSupplierPhoneNumberEditText.setOnTouchListener(touchListener);
     }
-
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
@@ -143,7 +151,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         String supplierName = mSupplierNameEditText.getText().toString().trim();
         String supplierPhone = mSupplierPhoneNumberEditText.getText().toString().trim();
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(supplierName) || TextUtils.isEmpty(price) || TextUtils.isEmpty(supplierName) || TextUtils.isEmpty(supplierPhone)) {
-            Toast.makeText(this, R.string.editor_insert_product_required_fields, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.editor_insert_book_required_fields, Toast.LENGTH_SHORT).show();
             return;
         } else {
 
@@ -163,16 +171,16 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 Uri newUri = getContentResolver().insert(BookEntry.CONTENT_URI, values);
 
                 if (newUri == null) {
-                    Toast.makeText(this, getString(R.string.editor_insert_product_failed), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.editor_insert_book_failed), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, getString(R.string.editor_insert_product_successful), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.editor_insert_book_successful), Toast.LENGTH_SHORT).show();
                 }
             } else {
                 int updatedRows = getContentResolver().update(currentBookUri, values, null, null);
                 if (updatedRows != 0) {
-                    Toast.makeText(this, getString(R.string.editor_update_product_successful), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.editor_update_book_successful), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, getString(R.string.editor_update_product_failed), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.editor_update_book_failed), Toast.LENGTH_SHORT).show();
                 }
             }
             finish();
@@ -275,9 +283,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         if (currentBookUri != null) {
             int deletedRow = getContentResolver().delete(currentBookUri, null, null);
             if (deletedRow != 0) {
-                Toast.makeText(this, getString(R.string.editor_delete_product_successful), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.editor_delete_book_successful), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, getString(R.string.editor_delete_product_failed), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.editor_delete_book_failed), Toast.LENGTH_SHORT).show();
             }
         }
         setResult(RESULT_OK);

@@ -17,22 +17,37 @@ import android.util.Log;
 
 import com.example.android.bookstoreapp.data.BookContract.BookEntry;
 
-
+/**
+ * {@link ContentProvider} for BookApp2.
+ */
 public class BookProvider extends ContentProvider {
 
-    private BookDbHelper dbHelper;
-
-    private static final int BOOKS = 100;
-    private static final int BOOK_ID = 101;
-
     public static final String LOG_TAG = BookProvider.class.getSimpleName();
-
+    /**
+     * URI matcher code for the content URI for the books table
+     */
+    private static final int BOOKS = 100;
+    /**
+     * URI matcher code for the content URI for a single book in the books table
+     */
+    private static final int BOOK_ID = 101;
+    /**
+     * UriMatcher object to match a content URI to a corresponding code.
+     */
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
+        // The calls to addURI() go here, for all of the content URI patterns that the provider
+        // should recognize.
         uriMatcher.addURI(BookContract.CONTENT_AUTHORITY, BookContract.PATH_BOOKS, BOOKS);
         uriMatcher.addURI(BookContract.CONTENT_AUTHORITY, BookContract.PATH_BOOKS + "/#", BOOK_ID);
     }
+
+    private BookDbHelper dbHelper;
+
+    /**
+     * Initialize the provider and the database helper object.
+     */
 
     @Override
     public boolean onCreate() {
@@ -45,6 +60,8 @@ public class BookProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         SQLiteDatabase database = dbHelper.getReadableDatabase();
 
+        // The cursor will hold the result of the query
+
         Cursor cursor;
 
         final int match = uriMatcher.match(uri);
@@ -54,10 +71,11 @@ public class BookProvider extends ContentProvider {
                 break;
             case BOOK_ID:
                 selection = BookEntry._ID + "=?";
-                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 cursor = database.query(BookEntry.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
-            default: throw new IllegalArgumentException("Cannot query unknown URI " + uri);
+            default:
+                throw new IllegalArgumentException("Cannot query unknown URI " + uri);
         }
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
         return cursor;
@@ -77,6 +95,10 @@ public class BookProvider extends ContentProvider {
         }
     }
 
+    /**
+     * Insert new data into the provider with the given ContentValues.
+     */
+
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
@@ -85,7 +107,7 @@ public class BookProvider extends ContentProvider {
             case BOOKS:
                 return insertBook(uri, values);
             default:
-                throw  new IllegalArgumentException("This insertion is not supported for \" + uri");
+                throw new IllegalArgumentException("This insertion is not supported for \" + uri");
         }
     }
 
@@ -121,6 +143,10 @@ public class BookProvider extends ContentProvider {
         return ContentUris.withAppendedId(uri, id);
     }
 
+    /**
+     * Delete the data at the given selection and selection arguments.
+     */
+
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -133,7 +159,7 @@ public class BookProvider extends ContentProvider {
                 break;
             case BOOK_ID:
                 selection = BookEntry._ID + "=?";
-                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 rowsDeleted = db.delete(BookEntry.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
@@ -153,7 +179,7 @@ public class BookProvider extends ContentProvider {
                 return updateBook(uri, values, selection, selectionArgs);
             case BOOK_ID:
                 selection = BookEntry._ID + "=?";
-                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 return updateBook(uri, values, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException("Update is not supported for " + uri);
@@ -195,7 +221,7 @@ public class BookProvider extends ContentProvider {
             return 0;
         }
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        int rowsUpdated =  db.update(BookEntry.TABLE_NAME, values, selection, selectionArgs);
+        int rowsUpdated = db.update(BookEntry.TABLE_NAME, values, selection, selectionArgs);
         if (rowsUpdated != 0) {
             getContext().getContentResolver().notifyChange(uri, null);
         }

@@ -2,17 +2,16 @@
 <resources>
     <!-- Margin around the floating action button in CatalogActivity -->
     <dimen name="fab_margin">16dp</dimen>
-
     <!-- Common margin value used throughout the app -->
     <dimen name="activity_margin">16dp</dimen>
-
-    <dimen name="list_item_price_font_size">24sp</dimen>
-    <dimen name="list_item_price_right_margin">32dp</dimen>
+    <dimen name="list_item_price_font_size">25sp</dimen>
+    <dimen name="list_item_price_right_margin">33dp</dimen>
+    <!-- Size for the button -->
     <dimen name="list_item_sale_button_size">50dp</dimen>
-    <dimen name="detail_main_label_font_size">34sp</dimen>
+    <dimen name="detail_main_label_font_size">35sp</dimen>
     <dimen name="detail_main_label_margin_bottom">16dp</dimen>
     <dimen name="quantity_price_layout_margin">16dp</dimen>
-    <dimen name="detail_secondary_label_font_size">20sp</dimen>
+    <dimen name="detail_secondary_label_font_size">18sp</dimen>
     <dimen name="detail_secondary_label_margin_bottom">16dp</dimen>
-    <dimen name="button_call_size">40dp</dimen>
+    <dimen name="button_call_size">50dp</dimen>
 </resources>
